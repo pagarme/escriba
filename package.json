@@ -28,7 +28,7 @@
     "serialize-error": "^7.0.1"
   },
   "devDependencies": {
-    "ava": "^2.4.0",
+    "ava": "^5.2.0",
     "chai": "^3.5.0",
     "coveralls": "^3.0.2",
     "dd-trace": "^0.14.0",

@@ -38,7 +38,8 @@ const prepareConfigProps = ({
 }
 
 const middleware = (requestLogger, responseLogger, logIdPath, skipper) => (req, res, next) => {
-  if (skipper(req.url, req.method)) return next()
+  const path = req.originalUrl.replace(/(\?|\#).*$/, '')
+  if (skipper(path, req.method)) return next()
   req.id = R.path(R.split('.', logIdPath), req) || cuid()
   requestLogger(req)
   responseLogger(req, res)

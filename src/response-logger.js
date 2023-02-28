@@ -80,7 +80,8 @@ const captureLog = ({
   const { req, res } = http
   const { write, end } = res
   const chunks = []
-  const shouldSkipChunk = skipper(req.url, req.method, true)
+  const path = req.originalUrl.replace(/(\?|\#).*$/, '')
+  const shouldSkipChunk = skipper(path, req.method, true)
 
   res.write = chunk => {
     if (!shouldSkipChunk) chunks.push(Buffer.from(chunk))

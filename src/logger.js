@@ -1,11 +1,14 @@
 const R = require('ramda')
 const cuid = require('cuid')
 const { stringify } = require('./utils')
+const { parsePropsType } = require('./utils')
 
-const buildLog = messageBuilder => (message, level, additional) => {
+const buildLog = (messageBuilder, loggerConf) => (message, level, additional) => {
   const defaultAdditional = R.defaultTo({}, additional)
+  message = parsePropsType(message, loggerConf.propsToParse)
   const log = messageBuilder(Object.assign(
-    { id: cuid(), message, level }, defaultAdditional
+    { id: cuid(), message, level },
+    defaultAdditional
   ))
   return log
 }
@@ -17,8 +20,8 @@ const createProxyLevels = (buildLog, logger) => {
   )}))
 }
 
-const logger = (vendorLogger, messageBuilder) => (
-  Object.assign({}, ...createProxyLevels(buildLog(messageBuilder), vendorLogger))
+const logger = (vendorLogger, messageBuilder, loggerConf = {}) => (
+  Object.assign({}, ...createProxyLevels(buildLog(messageBuilder, loggerConf), vendorLogger))
 )
 
 module.exports = { createLogger: logger }

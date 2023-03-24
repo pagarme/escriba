@@ -13,6 +13,7 @@ const escriba = config => {
     loggerEngine,
     sensitive,
     httpConf,
+    loggerConf,
     maskEngine,
     integrations
   } = config
@@ -31,7 +32,7 @@ const escriba = config => {
 
   const messageMasker = createMask(mask, sensitive)
   const messageBuilder = createMessageBuilder(messageMasker, service, integrations)
-  const logger = createLogger(loggerEngine, messageBuilder)
+  const logger = createLogger(loggerEngine, messageBuilder, loggerConf)
   const httpLogger = createHttpLogger(loggerEngine, messageBuilder, httpConf || {})
   return { logger, httpLogger }
 }

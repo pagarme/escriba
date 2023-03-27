@@ -39,6 +39,13 @@ test('stringify: with a valid error object', t => {
   t.true(logError.stack.includes('Error: Error Message'))
 })
 
+test('stringify: with a circular reference', t => {
+  const obj = { name: 'Papyrus' }
+  obj.b = obj
+
+  t.is(utils.stringify(obj), '{"name":"Papyrus","b":"~"}')
+})
+
 test('stringify: with a valid nested error object with multiple properties', t => {
   const innerErr = new Error('Inner error message')
   innerErr.username = 'foo'

@@ -1,6 +1,6 @@
 {
   "name": "escriba",
-  "version": "2.11.0",
+  "version": "2.12.0",
   "description": "Logging with steroids",
   "main": "src/index.js",
   "scripts": {
@@ -19,13 +19,13 @@
   },
   "homepage": "https://github.com/pagarme/escriba#readme",
   "dependencies": {
-    "circular-json": "0.5.5",
     "cuid": "^1.3.8",
     "iron-mask": "1.0.2",
+    "json-stringify-safe": "5.0.1",
     "moment-timezone": "^0.5.13",
     "pokeprop": "^1.0.0",
     "ramda": "^0.23.0",
-    "serialize-error": "^7.0.1"
+    "serialize-error": "8.1.0"
   },
   "devDependencies": {
     "ava": "^2.4.0",

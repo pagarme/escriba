@@ -1,6 +1,6 @@
 const R = require('ramda')
 const pokeprop = require('pokeprop')
-const circularJSON = require('circular-json')
+const stringifySafe = require('json-stringify-safe')
 const { serializeError } = require('serialize-error')
 
 const parseStringToJSON = chunk => (
@@ -11,8 +11,8 @@ const parseStringToJSON = chunk => (
 
 const stringify = log => {
   if (R.is(String, log)) return log
-  if (R.is(Error, log.message)) log.message = serializeError(log.message)
-  return circularJSON.stringify(log)
+  if (R.is(Error, log.message)) log.message = serializeError(log.message, { maxDepth: 10 })
+  return stringifySafe(log, null, 0, () => '~')
 }
 
 const pickProperties = R.flip(pokeprop)

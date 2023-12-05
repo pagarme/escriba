@@ -1,6 +1,6 @@
 {
   "name": "escriba",
-  "version": "2.13.0",
+  "version": "3.0.0",
   "description": "Logging with steroids",
   "main": "src/index.js",
   "scripts": {
@@ -31,7 +31,7 @@
     "ava": "^2.4.0",
     "chai": "^3.5.0",
     "coveralls": "^3.0.2",
-    "dd-trace": "2.13.0",
+    "dd-trace": "3.41.0",
     "eslint": "^5.1.0",
     "eslint-config-standard": "^10.2.0",
     "eslint-plugin-import": "^2.13.0",
@@ -44,6 +44,9 @@
     "winston": "^2.3.1"
   },
   "peerDependencies": {
-    "dd-trace": "2.13.0"
+    "dd-trace": "3.41.0"
+  },
+  "engines": {
+    "node": ">=14"
   }
 }

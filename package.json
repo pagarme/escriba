@@ -28,17 +28,17 @@
     "serialize-error": "8.1.0"
   },
   "devDependencies": {
-    "ava": "^2.4.0",
+    "ava": "^6.1.3",
     "chai": "^3.5.0",
     "coveralls": "^3.0.2",
     "dd-trace": "3.41.0",
     "eslint": "^5.1.0",
     "eslint-config-standard": "^10.2.0",
     "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-node": "^4.2.2",
+    "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
-    "log4js": "^3.0.0",
+    "log4js": "^6.4.0",
     "mask-json": "^1.0.2",
     "nyc": "^15.1.0",
     "winston": "^2.3.1"

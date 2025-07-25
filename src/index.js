@@ -10,6 +10,7 @@ const { createMessageBuilder } = require('./message-builder')
 const escriba = config => {
   const {
     service,
+    ddtags,
     loggerEngine,
     sensitive,
     httpConf,
@@ -30,7 +31,7 @@ const escriba = config => {
   loadIntegrations(integrations)
 
   const messageMasker = createMask(mask, sensitive)
-  const messageBuilder = createMessageBuilder(messageMasker, service, integrations)
+  const messageBuilder = createMessageBuilder(messageMasker, service, ddtags, integrations)
   const logger = createLogger(loggerEngine, messageBuilder)
   const httpLogger = createHttpLogger(loggerEngine, messageBuilder, httpConf || {})
   return { logger, httpLogger }
